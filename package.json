@@ -13,7 +13,7 @@
     "node": "6.11.0"
   },
   "repository": "git+https://github.com/nosisky/Hello-Books.git",
-  "author": "Abdulrasaq Nasirudeen",
+  "author": "Dat Tran",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nosisky/Hello-Books/issues"
