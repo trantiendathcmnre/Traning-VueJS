@@ -7,7 +7,7 @@ module.exports = {
     username: "root",
     password: "Aabdm@147369",
     database: "frontend-traning",
-    port: 5432,
+    port: 3306,
     dialect: "mysql",
   },
   test: {
