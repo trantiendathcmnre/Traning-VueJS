@@ -4,11 +4,11 @@ dotenv.load();
 
 module.exports = {
   development: {
-    username: "root",
-    password: "Aabdm@147369",
-    database: "frontend-traning",
-    port: 3306,
-    dialect: "mysql",
+    username: "postgres",
+    password: "postgres",
+    database: "ft-books",
+    port: 5432,
+    dialect: "postgres",
   },
   test: {
     use_env_variable: "DATABASE_TEST_URL",
