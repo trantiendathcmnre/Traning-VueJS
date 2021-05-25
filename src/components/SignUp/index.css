@@ -1,0 +1,12 @@
+.container{
+    width: 600px;
+}
+  
+.Label {
+    font-size: 0.85rem;
+  }
+  .submit {
+    border: 1px solid black;
+    width: 245px;
+  }
+ 
