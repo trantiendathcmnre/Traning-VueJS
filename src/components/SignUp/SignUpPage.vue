@@ -6,25 +6,25 @@
         <div class="d-flex flex-column justify-space-between">
           <div class="d-flex flex-column my-2">
             <label class="Label">Full name</label>
-            <v-text-field outlined error></v-text-field>
+            <v-text-field outlined></v-text-field>
           </div>
           <div class="d-flex flex-column my-2">
             <label class="Label">Email</label>
-            <v-text-field outlined error></v-text-field>
+            <v-text-field outlined></v-text-field>
           </div>
           <div class="d-flex flex-column my-2">
             <label class="Label">Password</label>
-            <v-text-field outlined error></v-text-field>
+            <v-text-field outlined></v-text-field>
           </div>
         </div>
         <div class="d-flex flex-column justify-space-between">
           <div class="d-flex flex-column my-2">
             <label class="Label">User name</label>
-            <v-text-field outlined error></v-text-field>
+            <v-text-field outlined></v-text-field>
           </div>
           <div class="d-flex flex-column my-2">
             <label class="Label">Password confirm</label>
-            <v-text-field outlined error></v-text-field>
+            <v-text-field outlined></v-text-field>
           </div>
         </div>
       </div>
