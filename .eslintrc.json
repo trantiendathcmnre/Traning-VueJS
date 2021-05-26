@@ -10,5 +10,7 @@
   "parserOptions": {
     "parser": "babel-eslint"
   },
-  "rules": {}
+  "rules": {
+    "vue/html-self-closing": "off"
+  }
 }
