@@ -45,6 +45,7 @@
     "clean-webpack-plugin": "^0.1.17",
     "colors": "^1.1.2",
     "compression-webpack-plugin": "^1.0.1",
+    "cors": "^2.8.5",
     "css-loader": "^5.2.4",
     "dotenv": "^4.0.0",
     "eslint": "^4.3.0",
