@@ -1,22 +1,13 @@
 <template>
-  <v-app>
-    <div class="container">
-      <ManagerBook />
+  <div id="app">
+    App Home Page
     </div>
-  </v-app>
 </template>
+
 <script>
-import ManagerBook from "./views/ManagerBook";
-
-export default {
-  name: "App",
-  components: {
-    ManagerBook,
-  },
-
-  data: () => ({}),
-};
+export default {};
 </script>
+
 <style lang="scss">
 #app {
   display: flex;
