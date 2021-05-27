@@ -4,7 +4,7 @@
       <div class="font-weight-black text-center text-h4">Login</div>
       <v-form ref="form" class="d-flex flex-column" v-model="valid">
         <div class="d-flex flex-column my-2">
-          <label class="Label">Email</label>
+          <label class="titleInput">Email</label>
           <v-text-field
             outlined
             :rules="[rules.required, rules.email]"
@@ -12,7 +12,7 @@
           />
         </div>
         <div class="d-flex flex-column my-2">
-          <label class="Label">Password</label>
+          <label class="titleInput">Password</label>
           <v-text-field
             outlined
             :rules="[rules.required, rules.passwordLength]"
