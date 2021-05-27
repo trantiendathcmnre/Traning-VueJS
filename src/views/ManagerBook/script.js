@@ -25,13 +25,13 @@ export default {
       { text: "Total", value: "total" },
       { text: "Actions", value: "actions", sortable: false },
     ],
-    books: [],
     bookDialogOpen: false,
   }),
 
   computed: mapGetters("book", ["allBooks"]),
-
+  
   mounted() {
+    console.log("Components Mounted and fetching data...");
     this.fetchBookAction();
   },
   methods: {
