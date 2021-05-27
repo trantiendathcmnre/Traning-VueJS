@@ -14,7 +14,7 @@ const mutations = {
 
 const actions = {
   // get CATEGORY data from API
-  fetchCategory: async ({ commit }) => {
+  fetchCategoryAction: async ({ commit }) => {
     try {
       const { data } = await services.fetchCategory();
 
