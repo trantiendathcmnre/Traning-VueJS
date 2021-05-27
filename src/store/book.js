@@ -20,6 +20,7 @@ const actions = {
       commit('setBooks', data);
     } catch (error) {
       console.log('Fetch books ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   },
 
@@ -30,6 +31,7 @@ const actions = {
       // Need to be handled if need such update book data on UI =============================================
     } catch (error) {
       console.log('Create book ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   },
 
@@ -40,6 +42,7 @@ const actions = {
       // Need to be handled if needed ====================
     } catch (error) {
       console.log('Update book ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   },
 
@@ -50,6 +53,7 @@ const actions = {
       // Need to be handled if needed====================
     } catch (error) {
       console.log('Delete book ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   }
 };
