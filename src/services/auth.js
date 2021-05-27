@@ -1,11 +1,11 @@
 import api from '../plugins/axios';
 
-function signin(user) {
+function signIn(user) {
   return api.post('/users/signin', user);
 }
 
-function signup(user) {
+function signUp(user) {
   return api.post('/users/signup', user);
 }
 
-export default { signin, signup };
+export default { signIn, signUp };

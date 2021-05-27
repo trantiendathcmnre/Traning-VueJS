@@ -14,7 +14,7 @@
               />
             </div>
             <div class="d-flex flex-column my-2">
-              <label class="titleInput">Email {{ isAuth }}</label>
+              <label class="titleInput">Email</label>
               <v-text-field
                 v-model="email"
                 outlined
@@ -50,7 +50,7 @@
                 :rules="[
                   rules.required,
                   rules.passwordLength,
-                  rules.confirmPass,
+                  rules.confirmPass
                 ]"
                 :type="isShowConfirm ? 'text' : 'password'"
                 :append-icon="isShowConfirm ? 'mdi-eye' : 'mdi-eye-off'"
@@ -72,11 +72,10 @@
         </v-btn>
       </v-form>
     </div>
+    <p>Is Authenticated - {{ isAuth }} -</p>
   </v-app>
 </template>
 
-<script src='./index'>
-</script>
+<script src="./index"></script>
 
-<style src="./index.css" >
-</style>
+<style src="./index.css"></style>
