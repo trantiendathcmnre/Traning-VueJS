@@ -1,5 +1,4 @@
-import { mapActions, mapGetters } from 'vuex';
-
+import { mapActions, } from 'vuex';
 export default {
     name: 'SignUp',
     data: () => ({
@@ -20,7 +19,6 @@ export default {
         },
         message: ''
     }),
-    computed: mapGetters('auth', ['isAuth']),
     methods: {
         /**
          * [actionRule]
