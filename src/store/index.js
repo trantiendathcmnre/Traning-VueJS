@@ -16,3 +16,10 @@ const store = new Vuex.Store({
 });
 
 export default store;
+
+// methods: {
+//   ...mapMutations(['module-name/setBooks']), myMethod() {
+
+//   }}
+
+

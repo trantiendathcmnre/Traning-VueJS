@@ -11,7 +11,13 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="success" dark class="mb-2" v-bind="attrs" v-on="on">
+            <v-btn
+              color="primary"
+              class="mb-2 primary bg-primary"
+              v-bind="attrs"
+              elevation="2"
+              v-on="on"
+            >
               Add Book
             </v-btn>
           </template>
@@ -106,17 +112,17 @@
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="headline"
-              >Are you sure you want to delete this item?</v-card-title
-            >
+            <v-card-title class="headline">
+              Are you sure you want to delete this item?
+            </v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete"
-                >Cancel</v-btn
-              >
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                >OK</v-btn
-              >
+              <v-btn color="blue darken-1" text @click="closeDelete">
+                Cancel
+              </v-btn>
+              <v-btn color="blue darken-1" text @click="deleteItemConfirm">
+                OK
+              </v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
@@ -136,7 +142,5 @@
   </v-data-table>
 </template>
 
-<script src="./script.js">
-</script>
-<style lang="scss" src="./style.scss">
-</style>
+<script src="./script.js"></script>
+<style lang="scss" src="./style.scss"></style>

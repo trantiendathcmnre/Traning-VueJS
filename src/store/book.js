@@ -16,7 +16,8 @@ const actions = {
   // get BOOK data from API
   fetchBook: async ({ commit }) => {
     try {
-      const { data } = await services.fetchBook();
+      //destructuring
+      const { data } = await services.fetchBook(); // call api
       commit('setBooks', data);
     } catch (error) {
       console.log('Fetch books ERROR --- ' + error);

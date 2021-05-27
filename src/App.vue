@@ -1,11 +1,17 @@
 <template>
   <div id="app">
     App Home Page
-    </div>
+    <ManagerBook />
+  </div>
 </template>
 
 <script>
-export default {};
+import ManagerBook from "./views/ManagerBook";
+export default {
+  components: {
+    ManagerBook,
+  }
+};
 </script>
 
 <style lang="scss">
