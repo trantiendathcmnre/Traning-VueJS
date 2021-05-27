@@ -33,10 +33,10 @@ const actions = {
   // SIGN UP user and save token
   signup: async ({ commit }, user) => {
     try {
-      const res = await services.signup(user);
+      const { data } = await services.signup(user);
 
-      if (res.data) {
-        saveToken(res.data.token);
+      if (data) {
+        saveToken(data.token);
         commit('setAuthState', true);
       }
     } catch (error) {
