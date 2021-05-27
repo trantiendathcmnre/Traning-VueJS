@@ -50,7 +50,7 @@
                 :rules="[
                   rules.required,
                   rules.passwordLength,
-                  rules.confirmPass
+                  rules.confirmPass,
                 ]"
                 :type="isShowConfirm ? 'text' : 'password'"
                 :append-icon="isShowConfirm ? 'mdi-eye' : 'mdi-eye-off'"
@@ -72,7 +72,6 @@
         </v-btn>
       </v-form>
     </div>
-    <p>Is Authenticated - {{ isAuth }} -</p>
   </v-app>
 </template>
 
