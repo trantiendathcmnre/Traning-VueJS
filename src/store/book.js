@@ -1,15 +1,15 @@
-import services from '../services/book';
+import services from "../services/book";
 
 const state = () => ({
-  books: {}
+  books: {},
 });
 
 const getters = {
-  allBook: state => state.books
+  allBooks: (state) => state.books,
 };
 
 const mutations = {
-  setBooks: (state, books) => (state.books = books)
+  setBooks: (state, books) => (state.books = books),
 };
 
 const actions = {
@@ -17,21 +17,23 @@ const actions = {
   fetchBookAction: async ({ commit }) => {
     try {
       //destructuring
+      console.log("hihih");
       const { data } = await services.fetchBook(); // call api
-      commit('setBooks', data);
+      console.log(data);
+      commit("setBooks", data);
     } catch (error) {
-      console.log('Fetch books ERROR --- ' + error);
+      console.log("Fetch books ERROR --- " + error);
       throw new Error(error.response.data.message);
     }
   },
 
   // CREATE a book
-  createBookAction: data => {
+  createBookAction: (data) => {
     try {
       services.createBook(data);
       // Need to be handled if need such update book data on UI =============================================
     } catch (error) {
-      console.log('Create book ERROR --- ' + error);
+      console.log("Create book ERROR --- " + error);
       throw new Error(error.response.data.message);
     }
   },
@@ -42,21 +44,21 @@ const actions = {
       services.updateBook(id, data);
       // Need to be handled if needed ====================
     } catch (error) {
-      console.log('Update book ERROR --- ' + error);
+      console.log("Update book ERROR --- " + error);
       throw new Error(error.response.data.message);
     }
   },
 
   // DELETE a book
-  deleteBookAction: id => {
+  deleteBookAction: (id) => {
     try {
       services.deleteBook(id);
       // Need to be handled if needed====================
     } catch (error) {
-      console.log('Delete book ERROR --- ' + error);
+      console.log("Delete book ERROR --- " + error);
       throw new Error(error.response.data.message);
     }
-  }
+  },
 };
 
 export default { namespaced: true, state, getters, mutations, actions };

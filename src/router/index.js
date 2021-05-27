@@ -1,10 +1,16 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import SignUp from '../components/SignUp/index.vue';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import SignUp from "../components/SignUp/index.vue";
+import ManagerBook from "../views/ManagerBook";
+
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/signup', component: SignUp },
+  // FOR TESTING =======================
+  { path: "/", redirect: "/signup" },
+  //==================================
+  { path: "/signup", component: SignUp },
+  { path: "/book-manager", component: ManagerBook },
 ];
 
 const router = new VueRouter({

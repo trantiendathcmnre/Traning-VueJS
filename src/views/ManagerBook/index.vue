@@ -23,8 +23,9 @@
       <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
     </template>
     <template v-slot:no-data>
-      <v-btn color="primary" @click="initialize"> Reset </v-btn>
+      <v-btn color="primary"> Reset </v-btn>
     </template>
+  {{allBooks}}
   </v-data-table>
 </template>
 
