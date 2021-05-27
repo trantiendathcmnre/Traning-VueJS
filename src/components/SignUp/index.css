@@ -5,8 +5,11 @@
 .Label {
     font-size: 0.85rem;
   }
-  .submit {
+.submit {
     border: 1px solid black;
     width: 245px;
   }
+.v-alert{
+  align-self: center;
+}
  
