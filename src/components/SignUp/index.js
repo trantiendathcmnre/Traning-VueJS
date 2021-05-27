@@ -20,6 +20,9 @@ export default {
         message: ''
     }),
     methods: {
+        /**
+         * [actionRule] 
+        */
         actionRule() {
             // change rule
             this.rules.required = (value) => !!value || "This field is required"
@@ -33,7 +36,9 @@ export default {
 
             this.rules.confirmPass = (value) => value === this.password || "Password and confirm password not same"
         },
-
+        /**
+        * [signUp] 
+        */
         signUp() {
             const user = {
                 username: this.userName,
@@ -49,9 +54,12 @@ export default {
                 }
             }).catch((err) => {
                 this.value = true // chang value v-alert tag
-                this.message = err.message // set message v-alert tag
+                this.message = err.response.data.message // set message v-alert tag
             })
         },
+        /**
+        * [submitBtn] 
+        */
         submitBtn() {
             this.actionRule() //set rule
             setTimeout(() => {
