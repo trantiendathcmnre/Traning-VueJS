@@ -10,6 +10,7 @@ export default {
   },
   data: () => ({
     dialog: false,
+
     editedItem: {
       id: 0,
       title: "",
@@ -34,8 +35,16 @@ export default {
   },
   methods: {
     ...mapMutations("modal", ["isBookModalOpen"]),
-    close: () => {},
-    save: () => {}
+    editItem() {},
 
+    deleteItem() {},
+
+    deleteItemConfirm() {},
+
+    close() {},
+
+    closeDelete() {},
+
+    save() {},
   },
 };
