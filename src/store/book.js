@@ -1,4 +1,4 @@
-import api from '../plugins/axios';
+import services from '../services/book';
 
 const state = () => ({
   books: {}
@@ -14,46 +14,43 @@ const mutations = {
 
 const actions = {
   // get BOOK data from API
-  fetchBook({ commit }) {
-    api
-      .get('/books')
-      .then(res => {
-        commit('setBooks', res.data);
-      })
-      .catch(error => console.log('Fetch books ERROR --- ' + error));
+  fetchBook: async ({ commit }) => {
+    try {
+      const { data } = await services.fetchBook();
+      commit('setBooks', data);
+    } catch (error) {
+      console.log('Fetch books ERROR --- ' + error);
+    }
   },
 
   // CREATE a book
-  createBook(data) {
-    api
-      .post(`/books`, data)
-      .then(res => {
-        // Need to be handled ====================
-        console.log(res);
-      })
-      .catch(error => console.log('Create book ERROR --- ' + error));
+  createBook: data => {
+    try {
+      services.createBook(data);
+      // Need to be handled if need such update book data on UI =============================================
+    } catch (error) {
+      console.log('Create book ERROR --- ' + error);
+    }
   },
 
   // UPDATE a book
-  updateBook(id) {
-    api
-      .put(`/books/${id}`)
-      .then(res => {
-        // Need to be handled ====================
-        console.log(res);
-      })
-      .catch(error => console.log('Update book ERROR --- ' + error));
+  updateBook: (id, data) => {
+    try {
+      services.updateBook(id, data);
+      // Need to be handled if needed ====================
+    } catch (error) {
+      console.log('Update book ERROR --- ' + error);
+    }
   },
 
   // DELETE a book
-  deleteBook(id) {
-    api
-      .delete(`/books/delete/${id}`)
-      .then(res => {
-        // Need to be handled ====================
-        console.log(res);
-      })
-      .catch(error => console.log('Update book ERROR --- ' + error));
+  deleteBook: id => {
+    try {
+      services.deleteBook(id);
+      // Need to be handled if needed====================
+    } catch (error) {
+      console.log('Delete book ERROR --- ' + error);
+    }
   }
 };
 
