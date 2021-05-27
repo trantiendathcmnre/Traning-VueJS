@@ -1,9 +1,13 @@
 <template>
   <div id="app">
-    App Home Page
-    <ManagerBook />
+    <router-view></router-view>
   </div>
 </template>
+<script>
+export default {
+  name: "App",
+};
+</script>
 
 <script>
 import ManagerBook from "./views/ManagerBook";

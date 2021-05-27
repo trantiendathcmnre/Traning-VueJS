@@ -17,9 +17,9 @@ const mutations = {
 
 const actions = {
   // sign in user and save token
-  signin: async ({ commit }, user) => {
+  signInAction: async ({ commit }, user) => {
     try {
-      const { data } = await services.signin(user);
+      const { data } = await services.signIn(user);
 
       if (data) {
         saveToken(data.token);
@@ -27,20 +27,21 @@ const actions = {
       }
     } catch (error) {
       console.log('Sign in ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   },
 
   // SIGN UP user and save token
-  signup: async ({ commit }, user) => {
+  signUpAction: async ({ commit }, user) => {
     try {
-      const { data } = await services.signup(user);
+      const res = await services.signUp(user);
 
-      if (data) {
-        saveToken(data.token);
+      if (res.data) {
+        saveToken(res.data.token);
         commit('setAuthState', true);
       }
     } catch (error) {
-      console.log('Sign up ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   }
 };

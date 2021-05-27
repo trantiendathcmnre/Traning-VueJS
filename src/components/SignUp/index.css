@@ -1,0 +1,15 @@
+.container{
+    width: 600px;
+}
+  
+.titleInput {
+    font-size: 0.85rem;
+  }
+.submit {
+    border: 1px solid black;
+    width: 245px;
+  }
+.v-alert{
+  align-self: center;
+}
+ 
