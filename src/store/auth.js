@@ -1,5 +1,5 @@
-import api from '../plugins/axios';
 import { saveToken } from '../common/jwt.service';
+import services from '../services/auth';
 
 const state = () => ({
   curUser: {},
@@ -17,26 +17,31 @@ const mutations = {
 
 const actions = {
   // sign in user and save token
-  signin({ commit }, user) {
-    api
-      .post('/users/signin', user)
-      .then(res => {
-        console.log(res.data.message);
-        saveToken(res.data.token);
+  signin: async ({ commit }, user) => {
+    try {
+      const { data } = await services.signin(user);
+
+      if (data) {
+        saveToken(data.token);
         commit('setAuthState', true);
-      })
-      .catch(error => console.log('Sign in ERROR --- ' + error));
+      }
+    } catch (error) {
+      console.log('Sign in ERROR --- ' + error);
+    }
   },
+
   // SIGN UP user and save token
-  signup({ commit }, user) {
-    api
-      .post('/users/signin', user)
-      .then(res => {
-        console.log(res.data.message);
+  signup: async ({ commit }, user) => {
+    try {
+      const res = await services.signup(user);
+
+      if (res.data) {
         saveToken(res.data.token);
         commit('setAuthState', true);
-      })
-      .catch(error => console.log('Sign up ERROR --- ' + error));
+      }
+    } catch (error) {
+      console.log('Sign up ERROR --- ' + error);
+    }
   }
 };
 

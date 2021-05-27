@@ -1,4 +1,4 @@
-import api from '../plugins/axios';
+import services from '../services/category';
 
 const state = () => ({
   category: []
@@ -14,13 +14,16 @@ const mutations = {
 
 const actions = {
   // get CATEGORY data from API
-  fetchCategory({ commit }) {
-    api
-      .get('/category')
-      .then(res => {
-        commit('setCategory', res.data);
-      })
-      .catch(error => console.log('Fetch category ERROR --- ' + error));
+  fetchCategory: async ({ commit }) => {
+    try {
+      const { data } = await services.fetchCategory();
+
+      if (data) {
+        commit('setCategory', data);
+      }
+    } catch (error) {
+      console.log('Fetch category ERROR --- ' + error);
+    }
   }
 };
 
