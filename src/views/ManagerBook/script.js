@@ -29,9 +29,8 @@ export default {
   }),
 
   computed: mapGetters("book", ["allBooks"]),
-  
+
   mounted() {
-    console.log("Components Mounted and fetching data...");
     this.fetchBookAction();
   },
   methods: {
@@ -39,7 +38,7 @@ export default {
     ...mapMutations("modal", ["toggleBookModal"]),
 
     handleOpenBookModal(bookId) {
-      console.log(bookId);
+      console.log({ bookId });
       this.toggleBookModal();
     },
 
