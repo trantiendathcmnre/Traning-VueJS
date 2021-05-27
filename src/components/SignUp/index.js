@@ -36,7 +36,11 @@ export default {
     }
   },
   methods: {
+    /**
+     * [actionRule]
+     */
     actionRule() {
+      // change rule
       this.rules.required = value => !!value || 'This field is required';
 
       this.rules.email = value => {
@@ -59,16 +63,22 @@ export default {
         passwordConfirm: this.passwordConfirm
       };
 
-      this.signUpAction(user).catch(error => {
-        this.value = true;
-        this.message = error.message;
-      });
+      this.signUpAction(user)
+        .then(() => this.$router.push('/book-manager'))
+        .catch(error => {
+          this.value = true;
+          this.message = error.message;
+        });
     },
     ...mapActions('auth', ['signUpAction']),
 
+    /**
+     * [submitBtn]
+     */
     submitBtn() {
-      this.actionRule();
+      this.actionRule(); //set rule
       setTimeout(() => {
+        // check form validate to call API
         const isValid = this.$refs.form.validate();
         if (isValid) {
           this.signUp();
