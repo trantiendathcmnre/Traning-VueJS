@@ -2,59 +2,59 @@
   <v-app>
     <div class="container d-flex flex-column mx-auto my-16 pt-10">
       <div class="font-weight-black text-center text-h4">Sign UP</div>
-      <v-form ref="form" class="d-flex flex-column" v-model="valid">
+      <v-form ref="form" v-model="valid" class="d-flex flex-column">
         <div class="d-flex justify-space-between my-2">
           <div class="d-flex flex-row flex-column justify-space-between">
             <div class="d-flex flex-column my-2">
-              <label class="Label">Full name</label>
+              <label class="titleInput">Full name</label>
               <v-text-field
+                v-model="fullName"
                 outlined
                 :rules="[rules.required]"
-                v-model="fullName"
               />
             </div>
             <div class="d-flex flex-column my-2">
-              <label class="Label">Email</label>
+              <label class="titleInput">Email {{ isAuth }}</label>
               <v-text-field
+                v-model="email"
                 outlined
                 :rules="[rules.required, rules.email]"
-                v-model="email"
               />
             </div>
             <div class="d-flex flex-column my-2">
-              <label class="Label">Password</label>
+              <label class="titleInput">Password</label>
               <v-text-field
+                v-model="password"
                 outlined
                 :rules="[rules.required, rules.passwordLength]"
-                :type="show ? 'text' : 'password'"
-                :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
-                @click:append="show = !show"
-                v-model="password"
+                :type="isShowPass ? 'text' : 'password'"
+                :append-icon="isShowPass ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="isShowPass = !isShowPass"
               />
             </div>
           </div>
           <div class="d-flex flex-column justify-space-between">
             <div class="d-flex flex-column my-2">
-              <label class="Label">User name</label>
+              <label class="titleInput">User name</label>
               <v-text-field
+                v-model="userName"
                 outlined
                 :rules="[rules.required]"
-                v-model="userName"
               />
             </div>
             <div class="d-flex flex-column my-2">
-              <label class="Label">Password confirm</label>
+              <label class="titleInput">Password confirm</label>
               <v-text-field
+                v-model="passwordConfirm"
                 outlined
                 :rules="[
                   rules.required,
                   rules.passwordLength,
                   rules.confirmPass,
                 ]"
-                :type="show1 ? 'text' : 'password'"
-                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                @click:append="show1 = !show1"
-                v-model="passwordConfirm"
+                :type="isShowConfirm ? 'text' : 'password'"
+                :append-icon="isShowConfirm ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="isShowConfirm = !isShowConfirm"
               />
             </div>
           </div>

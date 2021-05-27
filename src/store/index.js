@@ -1,13 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import auth from './auth';
+import book from './book';
+import category from './category';
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {}
+  modules: {
+    auth,
+    book,
+    category
+  }
 });
 
 export default store;

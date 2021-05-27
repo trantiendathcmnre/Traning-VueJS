@@ -1,12 +1,12 @@
-import axios from "axios"
+// import axios from "axios"
+import { mapActions, mapGetters } from "vuex"
 export default {
     name: "SignUp",
     data: () => ({
-        show: false,
-        show1: false,
+        isShowPass: false,
+        isShowConfirm: false,
         valid: true,
         value: false,
-        signup: true,
         fullName: "",
         email: "",
         password: "",
@@ -20,6 +20,7 @@ export default {
         },
         message: ''
     }),
+    computed: mapGetters(["auth/isAuth"]),
     methods: {
         actionRule() {
             this.rules.required = (value) => !!value || "This field is required"
@@ -36,7 +37,6 @@ export default {
         },
 
         signUp() {
-            console.log("calll")
             const user = {
                 username: this.userName,
                 password: this.password,
@@ -44,16 +44,22 @@ export default {
                 email: this.email,
                 passwordConfirm: this.passwordConfirm
             }
-            axios.post("http://192.168.2.31:8000/api/v1/users/signup", user).then((res) => {
-                if (res.data.message === "Signed up successfully") {
-                    // Router to MANAGER BOOK COMPONENT
-                    this.$router.push('/book-manager')
-                }
-            }).catch((err) => {
-                this.value = true
-                this.message = err.message
-            })
+            this.signup(user)
+            // axios.post("http://192.168.2.31:8000/api/v1/users/signup", user).then((res) => {
+            //     console.log(res)
+            //     const statusNum = res.status
+            //     if(statusNum >= 200 && statusNum <300){
+            //         this.$router.push('/book-manager')
+            //     }
+            // }).catch((err) => {
+            //     this.value = true
+            //     this.message = err.message
+            // })
+
+
         },
+        ...mapActions(["auth/ signup"]),
+
         submitBtn() {
             this.actionRule()
             setTimeout(() => {
