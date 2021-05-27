@@ -1,6 +1,12 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    App Home Page
+  </div>
 </template>
+
+<script>
+export default {};
+</script>
 
 <style lang="scss">
 #app {
