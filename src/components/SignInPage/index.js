@@ -1,3 +1,4 @@
+
 export default {
     name: "SignIn",
     data: () => ({
@@ -22,12 +23,14 @@ export default {
             this.rules.passwordLength = (value) => (value || '').length >= 6 || "Min length is 6 characters"
         },
 
-        signUp() {
+        callAPI() {
             console.log("call")
+
             // const user = {
             //     username: this.email,
             //     password: this.password
             // }
+
             // axios.post("http://192.168.2.31:8000/api/v1/users/signin", user).then((res) => {
             //     if (res.data.message === "Signed up successfully") {
             //         // Router to MANAGER BOOK COMPONENT
