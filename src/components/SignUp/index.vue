@@ -59,7 +59,7 @@
             </div>
           </div>
         </div>
-        <v-alert :value="this.value" type="error" outlined width="250px">
+        <v-alert :value="value" type="error" outlined width="250px">
           {{ message }}
         </v-alert>
         <v-btn
