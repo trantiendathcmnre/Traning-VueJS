@@ -1,4 +1,4 @@
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "ModalBook",
@@ -6,6 +6,10 @@ export default {
     bookDetail: {
       type: Object,
       default: null,
+    },
+    bookId: {
+      type: Number,
+      default: -1,
     },
   },
   data: () => ({
@@ -27,14 +31,13 @@ export default {
   }),
 
   computed: {
+    ...mapGetters("modal", ["isBookModalOpen"]),
     formTitle() {
-      return "addd";
+      return this.bookId ? "Add book" : "Edit Book";
     },
-
-    // ...mapGetters("modal", ["isBookModalOpen"]),
   },
   methods: {
-    ...mapMutations("modal", ["isBookModalOpen"]),
+    ...mapMutations("modal", ["toggleBookModal"]),
     editItem() {},
 
     deleteItem() {},
@@ -47,4 +50,5 @@ export default {
 
     save() {},
   },
+  watch: {},
 };

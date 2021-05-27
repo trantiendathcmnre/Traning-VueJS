@@ -1,8 +1,5 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    max-width="500px"
-  >
+  <v-dialog v-show="isBookModalOpen" v-model="isBookModalOpen" width="800px">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="primary"
@@ -23,21 +20,13 @@
       <v-card-text>
         <v-container>
           <v-row>
-            <v-col
-              cols="12"
-              sm="6"
-              md="4"
-            >
+            <v-col cols="12" sm="6" md="4">
               <v-text-field
                 v-model="editedItem.categoryId"
                 label="Category"
               ></v-text-field>
             </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-              md="4"
-            >
+            <v-col cols="12" sm="6" md="4">
               <v-text-field
                 v-model="editedItem.title"
                 label="Title"
@@ -48,11 +37,7 @@
                 required
               ></v-text-field>
             </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-              md="4"
-            >
+            <v-col cols="12" sm="6" md="4">
               <v-text-field
                 v-model="editedItem.description"
                 label="Description"
@@ -60,11 +45,7 @@
                 required
               ></v-text-field>
             </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-              md="4"
-            >
+            <v-col cols="12" sm="6" md="4">
               <v-text-field
                 v-model="editedItem.author"
                 label="Author"
@@ -72,11 +53,7 @@
                 required
               ></v-text-field>
             </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-              md="4"
-            >
+            <v-col cols="12" sm="6" md="4">
               <v-text-field
                 v-model="editedItem.total"
                 label="Total"
@@ -84,11 +61,7 @@
                 required
               ></v-text-field>
             </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-              md="4"
-            >
+            <v-col cols="12" sm="6" md="4">
               <v-text-field
                 v-model="editedItem.isbn"
                 label="ISBN"
@@ -96,11 +69,7 @@
                 required
               ></v-text-field>
             </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-              md="4"
-            >
+            <v-col cols="12" sm="6" md="4">
               <v-text-field
                 v-model="editedItem.productionYear"
                 label="Production Year"
@@ -108,11 +77,7 @@
                 required
               ></v-text-field>
             </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-              md="4"
-            >
+            <v-col cols="12" sm="6" md="4">
               <v-file-input
                 v-model="editedItem.cover"
                 label="Cover"
@@ -130,23 +95,12 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn
-          color="blue darken-1"
-          text
-          @click="close"
-        >
-          Cancel
-        </v-btn>
-        <v-btn
-          color="blue darken-1"
-          text
-          @click="save"
-        >
-          Save
-        </v-btn>
+        <v-btn color="blue darken-1" text @click="close"> Cancel </v-btn>
+        <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
 <script src="./script.js"></script>
 <style lang="scss" src="./style.scss"></style>
+
