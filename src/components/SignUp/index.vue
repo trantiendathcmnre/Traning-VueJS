@@ -14,7 +14,7 @@
               />
             </div>
             <div class="d-flex flex-column my-2">
-              <label class="titleInput">Email {{ isAuth }}</label>
+              <label class="titleInput">Email</label>
               <v-text-field
                 v-model="email"
                 outlined

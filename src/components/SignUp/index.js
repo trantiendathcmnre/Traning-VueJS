@@ -1,5 +1,4 @@
-// import axios from "axios"
-import { mapActions, mapGetters } from "vuex"
+import axios from "axios"
 export default {
     name: "SignUp",
     data: () => ({
@@ -20,9 +19,9 @@ export default {
         },
         message: ''
     }),
-    computed: mapGetters(["auth/isAuth"]),
     methods: {
         actionRule() {
+            // change rule
             this.rules.required = (value) => !!value || "This field is required"
 
             this.rules.email = (value) => {
@@ -33,7 +32,6 @@ export default {
             this.rules.passwordLength = (value) => (value || '').length >= 6 || "Min length is 6 characters"
 
             this.rules.confirmPass = (value) => value === this.password || "Password and confirm password not same"
-
         },
 
         signUp() {
@@ -44,31 +42,25 @@ export default {
                 email: this.email,
                 passwordConfirm: this.passwordConfirm
             }
-            this.signup(user)
-            // axios.post("http://192.168.2.31:8000/api/v1/users/signup", user).then((res) => {
-            //     console.log(res)
-            //     const statusNum = res.status
-            //     if(statusNum >= 200 && statusNum <300){
-            //         this.$router.push('/book-manager')
-            //     }
-            // }).catch((err) => {
-            //     this.value = true
-            //     this.message = err.message
-            // })
-
-
+            // call API
+            axios.post("http://192.168.2.31:8000/api/v1/users/signup", user).then((res) => {
+                if (res.data) {
+                    this.$router.push('/book-manager')
+                }
+            }).catch((err) => {
+                this.value = true // chang value v-alert tag
+                this.message = err.message // set message v-alert tag
+            })
         },
-        ...mapActions(["auth/ signup"]),
-
         submitBtn() {
-            this.actionRule()
+            this.actionRule() //set rule
             setTimeout(() => {
+                // check form validate to call API
                 const isValid = this.$refs.form.validate()
                 if (isValid) {
                     this.signUp()
                 }
             })
         }
-
     }
 }
