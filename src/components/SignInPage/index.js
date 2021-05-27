@@ -1,5 +1,4 @@
 import { mapActions } from "vuex";
-// import axios from "axios"
 export default {
     name: "SignIn",
     data: () => ({
