@@ -1,21 +1,14 @@
 <template>
   <div class="filtercat">
     <v-select
-      :items="allCategory"
-      item-value="name"
+      :items="category"
+      item-value="id"
       item-text="name"
       label="Category"
-      multiple
       v-model="selectedBook"
+      ref="select"
+      @change="handleClick"
     >
-      <template v-slot:prepend-item>
-        <v-list-item ripple @click="toggle">
-          <v-list-item-content>
-            <v-list-item-title> Select All </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider class="mt-1"></v-divider>
-      </template>
     </v-select>
   </div>
 </template>

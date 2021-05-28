@@ -2,14 +2,14 @@
   <div>
     <v-data-table
       :headers="headers"
-      :items="allBooks.rows"
+      :items="filterBook"
       sort-by=""
       class="elevation-1"
     >
       <template v-slot:top>
         <v-toolbar flat>
           <div class="wrap-tool-bar">
-            <FilterCategory />
+            <FilterCategory @handleDropdownChange="(id) => (categoryId = id)" />
             <v-spacer></v-spacer>
             <ModalBook />
           </div>
@@ -22,14 +22,10 @@
         <v-icon small class="mr-2" @click="handleOpenBookModal(item)">
           mdi-pencil
         </v-icon>
-        <v-icon small @click="deleteItem(item)">
-          mdi-delete
-        </v-icon>
+        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
       <template v-slot:no-data>
-        <v-btn color="primary">
-          Reset
-        </v-btn>
+        <v-btn color="primary"> Reset </v-btn>
       </template>
     </v-data-table>
   </div>
