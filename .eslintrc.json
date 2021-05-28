@@ -15,7 +15,7 @@
     "vue/max-attributes-per-line": ["error", {
       "singleline": 3
     }],
-    "no-unused-vars": "off"
+    "no-unused-vars": "warn"
 
   }
 

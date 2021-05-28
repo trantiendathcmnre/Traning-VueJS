@@ -1,12 +1,12 @@
 <template>
   <div class="filtercat">
     <v-select
+      ref="select"
+      v-model="selectedBook"
       :items="category"
       item-value="id"
       item-text="name"
       label="Category"
-      v-model="selectedBook"
-      ref="select"
       @change="handleClick"
     >
     </v-select>
