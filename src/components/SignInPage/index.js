@@ -53,6 +53,9 @@ export default {
                     this.callAPI()
                 }
             })
+        },
+        signInBtn() {
+            this.$router.push('/signup')
         }
 
     }
