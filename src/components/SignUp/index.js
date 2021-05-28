@@ -1,5 +1,4 @@
-import { mapActions, mapGetters } from 'vuex';
-
+import { mapActions, } from 'vuex';
 export default {
     name: 'SignUp',
     data: () => ({
@@ -20,10 +19,10 @@ export default {
         },
         message: ''
     }),
-    computed: mapGetters('auth', ['isAuth']),
     methods: {
         /**
-         * [actionRule]
+         * [actionnRule - set validation rules]
+         * @return {[void]}      [description]
          */
         actionRule() {
             // change rule
@@ -40,6 +39,10 @@ export default {
             this.rules.confirmPass = value =>
                 value === this.password || 'Password and confirm password not same';
         },
+        /**
+         * [signUp - call API]
+         * @return {[void]}      [description]
+         */
         signUp() {
             const user = {
                 username: this.userName,
@@ -59,7 +62,8 @@ export default {
         ...mapActions('auth', ['signUpAction']),
 
         /**
-         * [submitBtn]
+         * [submitBtn - call function acttionRule, check form validate to call API]
+         * @return {[void]}      [description]
          */
         submitBtn() {
             this.actionRule(); //set rule
