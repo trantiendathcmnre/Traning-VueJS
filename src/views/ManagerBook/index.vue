@@ -8,8 +8,11 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <FilterCategory />
-          <v-spacer></v-spacer>
+          <div class="wrap-tool-bar">
+            <FilterCategory />
+            <v-spacer></v-spacer>
+            <ModalBook />
+          </div>
         </v-toolbar>
       </template>
       <template v-slot:[`item.cover`]="{ item }">
@@ -25,8 +28,6 @@
         <v-btn color="primary"> Reset </v-btn>
       </template>
     </v-data-table>
-    <ModalBook />
-    <ConfirmDelete />
   </div>
 </template>
 

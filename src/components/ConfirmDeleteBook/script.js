@@ -3,6 +3,6 @@ export default {
   methods: {
     dialogDelete: () => console.log("Something"),
     closeDelete: () => console.log("Something"),
-    deleteItemConfirm: () => console.log("Something"),
+    confirmDeleteBook: () => console.log("Something"),
   },
 };
