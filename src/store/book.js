@@ -27,7 +27,7 @@ const actions = {
   },
 
   // CREATE a book
-  createBookAction: (data) => {
+  createBookAction: ({ commit }, data) => {
     try {
       services.createBook(data);
       // Need to be handled if need such update book data on UI =============================================
@@ -38,10 +38,9 @@ const actions = {
   },
 
   // UPDATE a book
-  updateBookAction: (id, data) => {
+  updateBookAction: ({ commit }, payload) => {
     try {
-      console.log("kkkkk");
-      return services.updateBook(id, data);
+      return services.updateBook(payload.id, payload.data);
       // Need to be handled if needed ====================
     } catch (error) {
       console.log("Update book ERROR --- " + error);
@@ -50,8 +49,9 @@ const actions = {
   },
 
   // DELETE a book
-  deleteBookAction: (id) => {
+  deleteBookAction: ({ commit }, id) => {
     try {
+      console.log("delete action");
       services.deleteBook(id);
       // Need to be handled if needed====================
     } catch (error) {

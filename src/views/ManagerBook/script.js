@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     ...mapActions("book", ["fetchBookAction"]), //return object
-    ...mapMutations("modal", ["toggleBookModal"]),
+    ...mapMutations("modal", ["toggleBookModal", "toggleConfirmModal"]),
 
     handleOpenBookModal(book) {
       this.toggleBookModal({
@@ -45,17 +45,12 @@ export default {
       });
     },
 
-    
-    save() {
-       
+    deleteItem(book) {
+      const bookId = { id: book.id };
+      this.toggleConfirmModal({
+        confirmModal: true,
+        book: bookId,
+      });
     },
   },
 };
-
-/**
- * get book id
- * => mutations => toggleBookModal => isBookModalopen
- * => bookId => store => modal get
- * [MODAL] => get bookdetail by bookID
- * bookID === -1 => create new book
- */

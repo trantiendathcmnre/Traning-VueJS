@@ -35,7 +35,7 @@ export default {
     ...mapGetters("book", ["allBooks"]),
 
     formTitle() {
-      return this.bookId ? "Add book" : "Edit Book";
+      return this.getBookModal.id ? "Edit book" : "Add Book";
     },
   },
 
@@ -49,16 +49,8 @@ export default {
     handleOpenModal() {
       this.toggleBookModal({ isOpen: true, book: {} });
     },
-
-    closeDelete() {},
-
-    deleteItem() {},
-
-    deleteItemConfirm() {},
-
     save() {
-      console.log(this.getBookModal.id);
-      console.log(this.getBookModal);
+      console.log("save");
       if (this.getBookModal.id) {
         const {
           title,
@@ -78,9 +70,33 @@ export default {
           cover,
           total,
         };
-
-        this.updateBookAction(3, data).then((res) => console.log(res));
+        const id = this.getBookModal.id;
+        console.log("hi");
+        this.updateBookAction({ id, data }).then((res) => console.log(res));
       } else {
+        //=============================
+        const {
+          title,
+          author,
+          categoryId,
+          productionYear,
+          description,
+          cover,
+          total,
+          isbn,
+        } = this.getBookModal;
+        const data = {
+          title,
+          author,
+          categoryId,
+          productionYear,
+          description,
+          cover,
+          total,
+          isbn,
+        };
+        //===========================
+        this.createBookAction(data);
         console.log("CreateNew");
       }
       this.toggleBookModal({ isOpen: false, book: {} });
