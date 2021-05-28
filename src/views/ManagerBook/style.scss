@@ -1,0 +1,25 @@
+.v-data-table {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .v-toolbar__content {
+    .wrap-tool-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  header.v-sheet.theme--light.v-toolbar.v-toolbar--flat {
+    margin-bottom: 30px;
+  }
+
+  .v-data-table.elevation-1.v-data-table--has-top.v-data-table--has-bottom.theme--light {
+    padding: 30px;
+  }
+
+  .v-data-footer {
+    display: none;
+  }
+}

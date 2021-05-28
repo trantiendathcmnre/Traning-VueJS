@@ -1,57 +1,64 @@
-import services from '../services/book';
+import services from "../services/book";
 
 const state = () => ({
-  books: {}
+  books: {},
 });
 
 const getters = {
-  allBook: state => state.books
+  allBooks: (state) => state.books,
 };
 
 const mutations = {
-  setBooks: (state, books) => (state.books = books)
+  setBooks: (state, books) => (state.books = books),
 };
 
 const actions = {
   // get BOOK data from API
-  fetchBook: async ({ commit }) => {
+  fetchBookAction: async ({ commit }) => {
     try {
-      const { data } = await services.fetchBook();
-      commit('setBooks', data);
+      //destructuring
+      const { data } = await services.fetchBook(); // call api
+      console.log("Book Fetched", data);
+      commit("setBooks", data);
     } catch (error) {
-      console.log('Fetch books ERROR --- ' + error);
+      console.log("Fetch books ERROR --- " + error);
+      throw new Error(error.response.data.message);
     }
   },
 
   // CREATE a book
-  createBook: data => {
+  createBookAction: ({ commit }, data) => {
     try {
       services.createBook(data);
       // Need to be handled if need such update book data on UI =============================================
     } catch (error) {
-      console.log('Create book ERROR --- ' + error);
+      console.log("Create book ERROR --- " + error);
+      throw new Error(error.response.data.message);
     }
   },
 
   // UPDATE a book
-  updateBook: (id, data) => {
+  updateBookAction: ({ commit }, payload) => {
     try {
-      services.updateBook(id, data);
+      return services.updateBook(payload.id, payload.data);
       // Need to be handled if needed ====================
     } catch (error) {
-      console.log('Update book ERROR --- ' + error);
+      console.log("Update book ERROR --- " + error);
+      throw new Error(error.response.data.message);
     }
   },
 
   // DELETE a book
-  deleteBook: id => {
+  deleteBookAction: ({ commit }, id) => {
     try {
+      console.log("delete action");
       services.deleteBook(id);
       // Need to be handled if needed====================
     } catch (error) {
-      console.log('Delete book ERROR --- ' + error);
+      console.log("Delete book ERROR --- " + error);
+      throw new Error(error.response.data.message);
     }
-  }
+  },
 };
 
 export default { namespaced: true, state, getters, mutations, actions };

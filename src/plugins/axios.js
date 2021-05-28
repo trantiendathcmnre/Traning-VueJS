@@ -15,7 +15,7 @@ api.interceptors.request.use(
     config.headers.Authorization = `Bearer ${getToken()}`;
     return config;
   },
-  err => Promise.reject(err)
+  err => Promise.reject(err.response.data)
 );
 
 export default api;
