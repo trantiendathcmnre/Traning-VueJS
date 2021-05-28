@@ -11,7 +11,10 @@ const getters = {
 };
 
 const mutations = {
-  toggleConfirmModal: (state) => (state.confirmModal = !state.confirmModal),
+  toggleConfirmModal: (state, { confirmModal, book }) => {
+    state.confirmModal = confirmModal;
+    state.book = book;
+  },
   toggleBookModal: (state, { isOpen, book }) => {
     state.isOpen = isOpen;
     state.book = book;

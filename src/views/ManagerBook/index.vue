@@ -12,6 +12,7 @@
             <FilterCategory @handleDropdownChange="(id) => (categoryId = id)" />
             <v-spacer></v-spacer>
             <ModalBook />
+            <ConfirmDelete />
           </div>
         </v-toolbar>
       </template>
