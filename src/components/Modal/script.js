@@ -1,4 +1,4 @@
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "ModalBook",
@@ -14,8 +14,8 @@ export default {
   },
   data: () => ({
     dialog: false,
-
-    editedItem: {
+    book: {},
+    defaultbook: {
       id: 0,
       title: "",
       isbn: "",
@@ -31,24 +31,62 @@ export default {
   }),
 
   computed: {
-    ...mapGetters("modal", ["isBookModalOpen"]),
+    ...mapGetters("modal", ["isBookModalOpen", "getBookModal"]),
+    ...mapGetters("book", ["allBooks"]),
+
     formTitle() {
       return this.bookId ? "Add book" : "Edit Book";
     },
   },
+
   methods: {
     ...mapMutations("modal", ["toggleBookModal"]),
-    editItem() {},
+    ...mapActions("book", ["createBookAction", "updateBookAction"]),
+    close() {
+      this.toggleBookModal({ isOpen: false, book: {} });
+    },
+
+    handleOpenModal() {
+      this.toggleBookModal({ isOpen: true, book: {} });
+    },
+
+    closeDelete() {},
 
     deleteItem() {},
 
     deleteItemConfirm() {},
 
-    close() {},
+    save() {
+      console.log(this.getBookModal.id);
+      console.log(this.getBookModal);
+      if (this.getBookModal.id) {
+        const {
+          title,
+          author,
+          categoryId,
+          productionYear,
+          description,
+          cover,
+          total,
+        } = this.getBookModal;
+        const data = {
+          title,
+          author,
+          categoryId,
+          productionYear,
+          description,
+          cover,
+          total,
+        };
 
-    closeDelete() {},
-
-    save() {},
+        this.updateBookAction(3, data).then((res) => console.log(res));
+      } else {
+        console.log("CreateNew");
+      }
+      this.toggleBookModal({ isOpen: false, book: {} });
+    },
   },
   watch: {},
+
+  updated() {},
 };

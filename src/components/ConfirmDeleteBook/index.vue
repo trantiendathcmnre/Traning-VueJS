@@ -19,7 +19,7 @@
         <v-btn
           color="blue darken-1"
           text
-          @click="deleteItemConfirm"
+          @click="confirmDeleteBook"
         >
           OK
         </v-btn>

@@ -40,7 +40,8 @@ const actions = {
   // UPDATE a book
   updateBookAction: (id, data) => {
     try {
-      services.updateBook(id, data);
+      console.log("kkkkk");
+      return services.updateBook(id, data);
       // Need to be handled if needed ====================
     } catch (error) {
       console.log("Update book ERROR --- " + error);

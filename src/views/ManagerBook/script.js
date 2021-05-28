@@ -45,13 +45,9 @@ export default {
       });
     },
 
+    
     save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.books[this.editedIndex], this.editedItem);
-      } else {
-        this.books.push(this.editedItem);
-      }
-      this.close();
+       
     },
   },
 };

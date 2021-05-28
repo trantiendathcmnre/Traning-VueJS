@@ -23,15 +23,8 @@ export default {
 <style lang="scss">
 #app {
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  .v-application--wrap {
-    padding: 40px 0;
-    .container {
-      width: 1100px;
-      margin: 0 auto;
-    }
-  }
+  justify-content: center;
+  height: 100vh;
 }
 </style>

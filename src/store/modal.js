@@ -7,6 +7,7 @@ const state = () => ({
 const getters = {
   isConfirmModalOpen: (state) => state.confirmModal,
   isBookModalOpen: (state) => state.isOpen,
+  getBookModal: (state) => state.book,
 };
 
 const mutations = {
