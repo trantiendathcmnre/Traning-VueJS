@@ -1,47 +1,51 @@
-import { mapGetters, mapMutations, mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 
 export default {
-  name: "ModalBook",
+  name: 'ModalBook',
   props: {
     bookDetail: {
       type: Object,
-      default: null,
+      default: null
     },
     bookId: {
       type: Number,
-      default: -1,
-    },
+      default: -1
+    }
   },
   data: () => ({
     dialog: false,
     book: {},
     defaultbook: {
       id: 0,
-      title: "",
-      isbn: "",
+      title: '',
+      isbn: '',
       total: 0,
-      productionYear: "",
+      productionYear: '',
       categoryId: 0,
-      cover: "",
-      author: "",
-      description: "",
-      createdAt: "",
-      updatedAt: "",
-    },
+      cover: '',
+      author: '',
+      description: '',
+      createdAt: '',
+      updatedAt: ''
+    }
   }),
 
   computed: {
-    ...mapGetters("modal", ["isBookModalOpen", "getBookModal"]),
-    ...mapGetters("book", ["allBooks"]),
+    ...mapGetters('modal', ['isBookModalOpen', 'getBookModal']),
+    ...mapGetters('book', ['allBooks']),
 
     formTitle() {
-      return this.getBookModal.id ? "Edit book" : "Add Book";
-    },
+      return this.getBookModal.id ? 'Edit book' : 'Add Book';
+    }
   },
 
   methods: {
-    ...mapMutations("modal", ["toggleBookModal"]),
-    ...mapActions("book", ["createBookAction", "updateBookAction"]),
+    ...mapMutations('modal', ['toggleBookModal']),
+    ...mapActions('book', [
+      'createBookAction',
+      'updateBookAction',
+      'fetchBookAction'
+    ]),
     close() {
       this.toggleBookModal({ isOpen: false, book: {} });
     },
@@ -50,7 +54,7 @@ export default {
       this.toggleBookModal({ isOpen: true, book: {} });
     },
     save() {
-      console.log("save");
+      console.log('save');
       if (this.getBookModal.id) {
         const {
           title,
@@ -59,7 +63,7 @@ export default {
           productionYear,
           description,
           cover,
-          total,
+          total
         } = this.getBookModal;
         const data = {
           title,
@@ -68,11 +72,11 @@ export default {
           productionYear,
           description,
           cover,
-          total,
+          total
         };
         const id = this.getBookModal.id;
-        console.log("hi");
-        this.updateBookAction({ id, data }).then((res) => console.log(res));
+        console.log('hi');
+        this.updateBookAction({ id, data }).then(() => this.fetchBookAction());
       } else {
         //=============================
         const {
@@ -83,7 +87,7 @@ export default {
           description,
           cover,
           total,
-          isbn,
+          isbn
         } = this.getBookModal;
         const data = {
           title,
@@ -93,16 +97,13 @@ export default {
           description,
           cover,
           total,
-          isbn,
+          isbn
         };
         //===========================
-        this.createBookAction(data);
-        console.log("CreateNew");
+        this.createBookAction(data).then(() => this.fetchBookAction());
+        console.log('CreateNew');
       }
       this.toggleBookModal({ isOpen: false, book: {} });
-    },
-  },
-  watch: {},
-
-  updated() {},
+    }
+  }
 };

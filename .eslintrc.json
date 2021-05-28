@@ -12,11 +12,12 @@
   },
   "rules": {
     "vue/html-self-closing": "off",
-    "vue/max-attributes-per-line": ["error", {
-      "singleline": 3
-    }],
+    "vue/max-attributes-per-line": [
+      "error",
+      {
+        "singleline": 5
+      }
+    ],
     "no-unused-vars": "warn"
-
   }
-
 }
