@@ -14,42 +14,46 @@ const mutations = {
 
 const actions = {
   // get BOOK data from API
-  fetchBook: async ({ commit }) => {
+  fetchBookAction: async ({ commit }) => {
     try {
       const { data } = await services.fetchBook();
       commit('setBooks', data);
     } catch (error) {
       console.log('Fetch books ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   },
 
   // CREATE a book
-  createBook: data => {
+  createBookAction: data => {
     try {
       services.createBook(data);
       // Need to be handled if need such update book data on UI =============================================
     } catch (error) {
       console.log('Create book ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   },
 
   // UPDATE a book
-  updateBook: (id, data) => {
+  updateBookAction: (id, data) => {
     try {
       services.updateBook(id, data);
       // Need to be handled if needed ====================
     } catch (error) {
       console.log('Update book ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   },
 
   // DELETE a book
-  deleteBook: id => {
+  deleteBookAction: id => {
     try {
       services.deleteBook(id);
       // Need to be handled if needed====================
     } catch (error) {
       console.log('Delete book ERROR --- ' + error);
+      throw new Error(error.response.data.message);
     }
   }
 };
