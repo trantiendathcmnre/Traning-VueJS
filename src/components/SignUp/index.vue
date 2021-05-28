@@ -1,8 +1,14 @@
 <template>
   <v-app>
     <div class="container d-flex flex-column mx-auto my-16 pt-10">
-      <div class="font-weight-black text-center text-h4">Sign UP</div>
-      <v-form ref="form" v-model="valid" class="d-flex flex-column">
+      <div class="font-weight-black text-center text-h4">
+        Sign UP
+      </div>
+      <v-form
+        ref="form"
+        v-model="valid"
+        class="d-flex flex-column"
+      >
         <div class="d-flex justify-space-between my-2">
           <div class="d-flex flex-row flex-column justify-space-between">
             <div class="d-flex flex-column my-2">
@@ -59,7 +65,12 @@
             </div>
           </div>
         </div>
-        <v-alert :value="value" type="error" outlined width="250px">
+        <v-alert
+          :value="value"
+          type="error"
+          outlined
+          width="250px"
+        >
           {{ message }}
         </v-alert>
         <v-btn
