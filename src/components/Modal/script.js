@@ -5,35 +5,13 @@ export default {
   components: {
     FilterCategory,
   },
-  props: {
-    bookDetail: {
-      type: Object,
-      default: null,
-    },
-    bookId: {
-      type: Number,
-      default: -1,
-    },
-  },
+
   data: () => ({
     dialog: false,
     book: {},
     rules: [(value) => value.length >= 5 || "Min Length is 5 character"],
     CoverRule: [(value) => value.size <= 3000 || "Just accept png, jpg"],
     required: [(value) => !!value || "This file is required"],
-    defaultbook: {
-      id: 0,
-      title: "",
-      isbn: "",
-      total: 0,
-      productionYear: "",
-      categoryId: 0,
-      cover: "",
-      author: "",
-      description: "",
-      createdAt: "",
-      updatedAt: "",
-    },
   }),
 
   computed: {
