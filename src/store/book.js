@@ -29,7 +29,7 @@ const actions = {
   // CREATE a book
   createBookAction: ({ commit }, data) => {
     try {
-      services.createBook(data);
+      return services.createBook(data);
       // Need to be handled if need such update book data on UI =============================================
     } catch (error) {
       console.log("Create book ERROR --- " + error);
@@ -52,7 +52,7 @@ const actions = {
   deleteBookAction: ({ commit }, id) => {
     try {
       console.log("delete action");
-      services.deleteBook(id);
+      return services.deleteBook(id);
       // Need to be handled if needed====================
     } catch (error) {
       console.log("Delete book ERROR --- " + error);
