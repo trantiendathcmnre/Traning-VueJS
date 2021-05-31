@@ -20,17 +20,20 @@
         <img :src="item.cover" style="width: 50px; height: 50px" />
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon small class="mr-2" @click="handleOpenBookModal(item)">
+        <v-icon
+          small
+          class="mr-2"
+          @click="handleOpenBookModal(item)"
+          color="orange"
+        >
           mdi-pencil
         </v-icon>
-        <v-icon small @click="deleteItem(item)">
+        <v-icon small @click="deleteItem(item)" color="success">
           mdi-delete
         </v-icon>
       </template>
       <template v-slot:no-data>
-        <v-btn color="primary">
-          Reset
-        </v-btn>
+        <v-btn color="primary"> Reset </v-btn>
       </template>
     </v-data-table>
   </div>

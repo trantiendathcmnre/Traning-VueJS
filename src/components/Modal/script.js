@@ -1,7 +1,10 @@
 import { mapGetters, mapMutations, mapActions } from "vuex";
-
+import FilterCategory from "@/components/Dropdown";
 export default {
   name: "ModalBook",
+  components: {
+    FilterCategory,
+  },
   props: {
     bookDetail: {
       type: Object,
@@ -15,6 +18,9 @@ export default {
   data: () => ({
     dialog: false,
     book: {},
+    rules: [(value) => value.length >= 5 || "Min Length is 5 character"],
+    CoverRule: [(value) => value.size <= 3000 || "Just accept png, jpg"],
+    required: [(value) => !!value || "This file is required"],
     defaultbook: {
       id: 0,
       title: "",
@@ -41,11 +47,18 @@ export default {
 
   methods: {
     ...mapMutations("modal", ["toggleBookModal"]),
-    ...mapActions("book", ["createBookAction", "updateBookAction"]),
+    ...mapActions("book", [
+      "createBookAction",
+      "updateBookAction",
+      "fetchBookAction",
+    ]),
+
     close() {
       this.toggleBookModal({ isOpen: false, book: {} });
     },
-
+    handleChange(id) {
+      this.categoryId = id;
+    },
     handleOpenModal() {
       this.toggleBookModal({ isOpen: true, book: {} });
     },
@@ -71,14 +84,12 @@ export default {
           total,
         };
         const id = this.getBookModal.id;
-        console.log("hi");
-        this.updateBookAction({ id, data }).then((res) => console.log(res));
+        this.updateBookAction(id).then(() => this.fetchBookAction());
       } else {
         //=============================
         const {
           title,
           author,
-          categoryId,
           productionYear,
           description,
           cover,
@@ -88,7 +99,7 @@ export default {
         const data = {
           title,
           author,
-          categoryId,
+          categoryId: this.categoryId,
           productionYear,
           description,
           cover,
@@ -96,7 +107,9 @@ export default {
           isbn,
         };
         //===========================
-        this.createBookAction(data);
+
+        data.cover = "image.jpg";
+        this.createBookAction(data).then(() => this.fetchBookAction());
         console.log("CreateNew");
       }
       this.toggleBookModal({ isOpen: false, book: {} });

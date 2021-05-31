@@ -23,20 +23,21 @@
         <span class="headline">{{ formTitle }}</span>
       </v-card-title>
 
-      <v-card-text>
+      <v-card-text ref="form">
         <v-container>
           <v-row>
             <v-col cols="12" sm="6" md="4">
-              <v-text-field
+              <!-- <v-text-field
                 v-model="getBookModal.categoryId"
                 label="Category"
-              ></v-text-field>
+              ></v-text-field> -->
+              <FilterCategory @handleDropdownChange="handleChange" />
             </v-col>
             <v-col cols="12" sm="6" md="4">
               <v-text-field
                 v-model="getBookModal.title"
                 label="Title"
-                :rules="[(v) => v.length >= 5 || 'Min length title is 5']"
+                :rules="rules"
                 required
               ></v-text-field>
             </v-col>
@@ -44,7 +45,7 @@
               <v-text-field
                 v-model="getBookModal.description"
                 label="Description"
-                :rules="[(v) => !!v || 'This field is required']"
+                :rules="required"
                 required
               ></v-text-field>
             </v-col>
@@ -52,7 +53,7 @@
               <v-text-field
                 v-model="getBookModal.author"
                 label="Author"
-                :rules="[(v) => !!v || 'This field is required']"
+                :rules="required"
                 required
               ></v-text-field>
             </v-col>
@@ -60,7 +61,7 @@
               <v-text-field
                 v-model="getBookModal.total"
                 label="Total"
-                :rules="[(v) => !!v || 'This field is required']"
+                :rules="required"
                 required
               ></v-text-field>
             </v-col>
@@ -68,7 +69,7 @@
               <v-text-field
                 v-model="getBookModal.isbn"
                 label="ISBN"
-                :rules="[(v) => !!v || 'This field is required']"
+                :rules="required"
                 required
               ></v-text-field>
             </v-col>
@@ -76,7 +77,7 @@
               <v-text-field
                 v-model="getBookModal.productionYear"
                 label="Production Year"
-                :rules="[(v) => !!v || 'This field is required']"
+                :rules="required"
                 required
               ></v-text-field>
             </v-col>
@@ -85,10 +86,7 @@
                 v-model="getBookModal.cover"
                 label="Cover"
                 accept="image/png, image/jpeg, image/jpg"
-                :rules="[
-                  (v) => !!v || 'This field is required',
-                  (v) => v.size >= 3000 || 'Just accept png, jpeg, jpg',
-                ]"
+                :rules="[required, CoverRule]"
                 required
               ></v-file-input>
             </v-col>
@@ -98,12 +96,8 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="blue darken-1" text @click="close">
-          Cancel
-        </v-btn>
-        <v-btn color="blue darken-1" text @click="save">
-          Save
-        </v-btn>
+        <v-btn color="blue darken-1" text @click="close"> Cancel </v-btn>
+        <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
