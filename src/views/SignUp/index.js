@@ -6,6 +6,7 @@ export default {
         isShowConfirm: false,
         valid: true,
         isValue: false,
+        isSuccess: false,
         fullName: '',
         email: '',
         password: '',
@@ -17,6 +18,7 @@ export default {
             passwordLength: true,
             confirmPass: true
         },
+        successMess: "",
         message: ''
     }),
     methods: {
@@ -53,7 +55,15 @@ export default {
             };
 
             this.signUpAction(user)
-                .then(() => this.$router.push('/sign-in'))
+                .then(() => {
+                    this.isValue = false;
+                    this.isSuccess = true;
+                    this.successMess = "Sign up success"
+                    const self = this
+                    setTimeout(function () {
+                        self.$router.push('/sign-in')
+                    }, 1500)
+                })
                 .catch(error => {
                     this.isValue = true;
                     this.message = error.message;

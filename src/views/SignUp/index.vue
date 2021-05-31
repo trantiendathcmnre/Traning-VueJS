@@ -9,6 +9,9 @@
     >
       {{ message }}
     </v-alert>
+    <v-snackbar v-model="isSuccess" top color="success" outlined>{{
+      successMess
+    }}</v-snackbar>
     <div class="btn-group d-flex flex-column mx-auto my-16 pt-10">
       <div class="font-weight-black text-center text-h4">Sign UP</div>
       <v-form ref="form" v-model="valid" class="d-flex flex-column">
