@@ -1,30 +1,24 @@
 <template>
-  <v-app>
+  <v-container>
     <div class="container d-flex flex-column mx-auto my-16 pt-10">
-      <div class="font-weight-black text-center text-h4">
-        Sign UP
-      </div>
-      <v-form
-        ref="form"
-        v-model="valid"
-        class="d-flex flex-column"
-      >
+      <div class="font-weight-black text-center text-h4">Sign UP</div>
+      <v-form ref="form" v-model="valid" class="d-flex flex-column">
         <div class="d-flex justify-space-between my-2">
           <div class="d-flex flex-row flex-column justify-space-between">
             <div class="d-flex flex-column my-2">
               <label class="titleInput">Full name</label>
               <v-text-field
                 v-model="fullName"
-                outlined
                 :rules="[rules.required]"
+                outlined
               />
             </div>
             <div class="d-flex flex-column my-2">
               <label class="titleInput">Email</label>
               <v-text-field
                 v-model="email"
-                outlined
                 :rules="[rules.required, rules.email]"
+                outlined
               />
             </div>
             <div class="d-flex flex-column my-2">
@@ -41,7 +35,7 @@
           </div>
           <div class="d-flex flex-column justify-space-between">
             <div class="d-flex flex-column my-2">
-              <label class="titleInput">User name</label>
+              <label class="titleInput">Username</label>
               <v-text-field
                 v-model="userName"
                 outlined
@@ -65,12 +59,7 @@
             </div>
           </div>
         </div>
-        <v-alert
-          :value="value"
-          type="error"
-          outlined
-          width="250px"
-        >
+        <v-alert :value="value" type="error" outlined width="250px">
           {{ message }}
         </v-alert>
         <v-btn
@@ -83,7 +72,7 @@
         </v-btn>
       </v-form>
     </div>
-  </v-app>
+  </v-container>
 </template>
 
 <script src="./index"></script>

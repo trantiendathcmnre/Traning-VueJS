@@ -22,7 +22,7 @@ export default {
     methods: {
         /**
          * [actionnRule - set validation rules]
-         * @return {[void]}      [description]
+         * @return []      [description]
          */
         actionRule() {
             // change rule
@@ -41,7 +41,7 @@ export default {
         },
         /**
          * [signUp - call API]
-         * @return {[void]}      [description]
+         * @return []     [description]
          */
         signUp() {
             const user = {
@@ -63,7 +63,7 @@ export default {
 
         /**
          * [submitBtn - call function acttionRule, check form validate to call API]
-         * @return {[void]}      [description]
+         * @return []      [description]
          */
         submitBtn() {
             this.actionRule(); //set rule
