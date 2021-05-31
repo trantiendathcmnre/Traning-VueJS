@@ -1,11 +1,7 @@
-.container .signIn-page{
+.container.signIn-page{
     width: 100%;
-}
-.d-flex{
-    .titleInput{
-        font: {
-        size: 0.85rem };
-        text-align: left;
+    .title-input {
+        font-size: .85rem;
     }
 }
 #app{

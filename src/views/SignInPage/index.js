@@ -23,8 +23,7 @@ export default {
             this.rules.passwordLength = (value) => (value || '').length >= 5 || "Min length is 5 characters"
         },
         /**
-         * [callAPI - call API]
-         * @return []      [description]
+         * [callAPI - get body data, call API,push router path if success or show Toast error if fail]
          */
         callAPI() {
             const user = {
@@ -42,7 +41,6 @@ export default {
         ...mapActions("auth", ["signInAction"]),
         /**
          * [submitBtn - call function actionRule, check form validate to call API]
-         * @return []      [description]
          */
         submitBtn() {
             this.actionRule()
@@ -54,7 +52,10 @@ export default {
             })
 
         },
-        signInBtn() {
+        /**
+        * [signUpBtn - push router path]
+        */
+        signUpBtn() {
             this.$router.push('/sign-up')
         }
 

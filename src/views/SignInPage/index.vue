@@ -13,11 +13,11 @@
       <div class="font-weight-black text-center text-h4">Login</div>
       <v-form ref="form" v-model="valid" class="d-flex flex-column">
         <div class="d-flex flex-column my-2">
-          <label class="titleInput">Username</label>
+          <label class="title-input">Username</label>
           <v-text-field v-model="userName" outlined :rules="[rules.required]" />
         </div>
         <div class="d-flex flex-column my-2">
-          <label class="titleInput">Password</label>
+          <label class="title-input">Password</label>
           <v-text-field
             v-model="password"
             outlined
@@ -39,7 +39,7 @@
           class="submit cyan darken-2 rounded-xl mx-auto my-1 text-center"
           width="180px"
           depressed
-          @click="signInBtn"
+          @click="signUpBtn"
         >
           Sign Up
         </v-btn>
