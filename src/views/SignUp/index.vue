@@ -1,14 +1,17 @@
 <template>
-  <v-app>
-    <div class="container d-flex flex-column mx-auto my-16 pt-10">
-      <div class="font-weight-black text-center text-h4">
-        Sign UP
-      </div>
-      <v-form
-        ref="form"
-        v-model="valid"
-        class="d-flex flex-column"
-      >
+  <v-container class="d-flex flex-column pa-0">
+    <v-alert
+      :value="isValue"
+      type="error"
+      outlined
+      width="250px"
+      class="text-center align-self-end"
+    >
+      {{ message }}
+    </v-alert>
+    <div class="btn-group d-flex flex-column mx-auto my-16 pt-10">
+      <div class="font-weight-black text-center text-h4">Sign UP</div>
+      <v-form ref="form" v-model="valid" class="d-flex flex-column">
         <div class="d-flex justify-space-between my-2">
           <div class="d-flex flex-row flex-column justify-space-between">
             <div class="d-flex flex-column my-2">
@@ -65,14 +68,7 @@
             </div>
           </div>
         </div>
-        <v-alert
-          :value="value"
-          type="error"
-          outlined
-          width="250px"
-        >
-          {{ message }}
-        </v-alert>
+
         <v-btn
           class="submit blue lighten-2 rounded-xl mx-auto my-1 text-center"
           width="180px"
@@ -83,9 +79,9 @@
         </v-btn>
       </v-form>
     </div>
-  </v-app>
+  </v-container>
 </template>
 
 <script src="./index"></script>
 
-<style src="./index.css"></style>
+<style lang="scss" src="./index.scss"></style>

@@ -5,7 +5,7 @@ export default {
         isShowPass: false,
         isShowConfirm: false,
         valid: true,
-        value: false,
+        isValue: false,
         fullName: '',
         email: '',
         password: '',
@@ -53,9 +53,9 @@ export default {
             };
 
             this.signUpAction(user)
-                .then(() => this.$router.push('/book-manager'))
+                .then(() => this.$router.push('/sign-in'))
                 .catch(error => {
-                    this.value = true;
+                    this.isValue = true;
                     this.message = error.message;
                 });
         },

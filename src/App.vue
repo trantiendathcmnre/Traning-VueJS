@@ -23,7 +23,6 @@ export default {
 <style lang="scss">
 #app {
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 100vh;
 }
