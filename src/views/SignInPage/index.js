@@ -3,7 +3,7 @@ export default {
     name: "SignIn",
     data: () => ({
         isShowPassword: false,
-        isvalue: false,
+        isValue: false,
         valid: true,
         userName: "",
         password: "",
@@ -16,7 +16,7 @@ export default {
     methods: {
         /**
          * [actionRule - set validation rules]
-         * @return {[void]}      [description]
+         * @return []      [description]
          */
         actionRule() {
             this.rules.required = (value) => !!value || "This field is required"
@@ -24,7 +24,7 @@ export default {
         },
         /**
          * [callAPI - call API]
-         * @return {[void]}      [description]
+         * @return []      [description]
          */
         callAPI() {
             const user = {
@@ -35,15 +35,14 @@ export default {
                 .then(
                     () => this.$router.push('/book-manager'))
                 .catch((err) => {
-                    console.log("errrrrrrr")
-                    this.isvalue = true
+                    this.isValue = true
                     this.message = err.message
                 })
         },
         ...mapActions("auth", ["signInAction"]),
         /**
          * [submitBtn - call function actionRule, check form validate to call API]
-         * @return {[void]}      [description]
+         * @return []      [description]
          */
         submitBtn() {
             this.actionRule()
@@ -54,6 +53,10 @@ export default {
                 }
             })
         },
+        /**
+         * [signInBtn - push router path]
+         * @return []      [description]
+         */
         signInBtn() {
             this.$router.push('/signup')
         }
