@@ -24,26 +24,24 @@ export default {
     methods: {
         /**
          * [actionnRule - set validation rules]
-         * @return {[void]}      [description]
          */
         actionRule() {
-            // change rule
             this.rules.required = value => !!value || 'This field is required';
-
+            // required rule
             this.rules.email = value => {
                 const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return pattern.test(value) || 'The format is correct';
             };
-
+            // check format email rule
             this.rules.passwordLength = value =>
                 (value || '').length >= 6 || 'Min length is 6 characters';
-
+            // count characters rule
             this.rules.confirmPass = value =>
                 value === this.password || 'Password and confirm password not same';
+            // confirm password rule
         },
         /**
          * [signUp - call API]
-         * @return {[void]}      [description]
          */
         signUp() {
             const user = {
@@ -59,9 +57,8 @@ export default {
                     this.isValue = false;
                     this.isSuccess = true;
                     this.successMess = "Sign up success"
-                    const self = this
-                    setTimeout(function () {
-                        self.$router.push('/sign-in')
+                    setTimeout(() => {
+                        this.$router.push('/sign-in')
                     }, 1500)
                 })
                 .catch(error => {
@@ -73,7 +70,6 @@ export default {
 
         /**
          * [submitBtn - call function acttionRule, check form validate to call API]
-         * @return {[void]}      [description]
          */
         submitBtn() {
             this.actionRule(); //set rule
