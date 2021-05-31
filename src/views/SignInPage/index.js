@@ -52,9 +52,10 @@ export default {
                     this.callAPI()
                 }
             })
+
         },
         signInBtn() {
-            this.$router.push('/signup')
+            this.$router.push('/sign-up')
         }
 
     }
