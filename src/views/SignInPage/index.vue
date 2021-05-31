@@ -1,5 +1,5 @@
 <template>
-  <v-container class="signIn-page d-flex flex-column">
+  <v-container class="sign-in-page d-flex flex-column">
     <v-alert
       :value="isValue"
       class="mb-0 text-center align-self-end"
