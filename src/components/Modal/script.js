@@ -64,55 +64,57 @@ export default {
     },
     save() {
       console.log("save");
-      if (this.getBookModal.id) {
-        const {
-          title,
-          author,
-          categoryId,
-          productionYear,
-          description,
-          cover,
-          total,
-        } = this.getBookModal;
-        const data = {
-          title,
-          author,
-          categoryId,
-          productionYear,
-          description,
-          cover,
-          total,
-        };
-        const id = this.getBookModal.id;
-        this.updateBookAction(id).then(() => this.fetchBookAction());
-      } else {
-        //=============================
-        const {
-          title,
-          author,
-          productionYear,
-          description,
-          cover,
-          total,
-          isbn,
-        } = this.getBookModal;
-        const data = {
-          title,
-          author,
-          categoryId: this.categoryId,
-          productionYear,
-          description,
-          cover,
-          total,
-          isbn,
-        };
-        //===========================
+      if (this.$refs.form.validate()) {
+        if (this.getBookModal.id) {
+          const {
+            title,
+            author,
+            categoryId,
+            productionYear,
+            description,
+            cover,
+            total,
+          } = this.getBookModal;
+          const data = {
+            title,
+            author,
+            categoryId,
+            productionYear,
+            description,
+            cover,
+            total,
+          };
+          const id = this.getBookModal.id;
+          this.updateBookAction(id).then(() => this.fetchBookAction());
+        } else {
+          //=============================
+          const {
+            title,
+            author,
+            productionYear,
+            description,
+            cover,
+            total,
+            isbn,
+          } = this.getBookModal;
+          const data = {
+            title,
+            author,
+            categoryId: this.categoryId,
+            productionYear,
+            description,
+            cover,
+            total,
+            isbn,
+          };
+          //===========================
 
-        data.cover = "image.jpg";
-        this.createBookAction(data).then(() => this.fetchBookAction());
-        console.log("CreateNew");
+          data.cover = "image.jpg";
+          this.createBookAction(data).then(() => this.fetchBookAction());
+          console.log("CreateNew");
+        }
+        this.toggleBookModal({ isOpen: false, book: {} });
       }
-      this.toggleBookModal({ isOpen: false, book: {} });
     },
   },
 };
