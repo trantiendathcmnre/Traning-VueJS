@@ -18,6 +18,6 @@
         "singleline": 5
       }
     ],
-    "no-unused-vars": "off"
+    "no-unused-vars": "warn"
   }
 }

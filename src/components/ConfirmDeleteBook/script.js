@@ -1,13 +1,13 @@
-import { mapMutations, mapGetters, mapActions } from "vuex";
+import { mapMutations, mapGetters, mapActions } from 'vuex';
 export default {
-  name: "ConfirmDelete",
+  name: 'ConfirmDelete',
   computed: {
-    ...mapGetters("modal", ["isConfirmModalOpen", "getBookModal"]),
-    ...mapGetters("book", ["allBooks"]),
+    ...mapGetters('modal', ['isConfirmModalOpen', 'getBookModal']),
+    ...mapGetters('book', ['allBooks'])
   },
   methods: {
-    ...mapMutations("modal", ["toggleConfirmModal"]),
-    ...mapActions("book", ["deleteBookAction"]),
+    ...mapMutations('modal', ['toggleConfirmModal']),
+    ...mapActions('book', ['deleteBookAction', 'fetchBookAction']),
 
     deleteItem() {
       this.toggleConfirmModal();
@@ -19,8 +19,10 @@ export default {
 
     confirmDeleteBook() {
       console.log(this.getBookModal.id);
-      this.deleteBookAction(this.getBookModal.id);
+      this.deleteBookAction(this.getBookModal.id).then(() =>
+        this.fetchBookAction()
+      );
       this.toggleConfirmModal({ confirmModal: false, book: {} });
-    },
-  },
+    }
+  }
 };

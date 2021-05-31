@@ -2,30 +2,21 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "FilterCategory",
   data: () => ({
-    selectedBook: []
+    selectedBook: {},
   }),
   computed: {
     ...mapGetters("category", ["allCategory"]),
-    selectAllBook() {
-      return this.selectedBook.length === this.allCategory.length
-    },
-    selectSomeBook() {
-      return this.selectedBook.length > 0 && !this.selectAllBook
-    },
+    category() {
+      return [{ id: 0, name: 'Select All' }, ...this.allCategory]
+    }
   }
   ,
   methods: {
     ...mapActions("category", ["fetchCategoryAction"]),
-    toggle() {
-      console.log(this.selectAllBook)
-      this.$nextTick(() => {
-        if (this.selectAllBook) {
-          this.selectedBook = []
-        } else {
-          this.selectedBook = this.allCategory.slice()
-        }
-      })
-    },
+    handleClick(id) {
+      this.$emit("handleDropdownChange", id)
+    }
+
   },
   mounted() {
     this.fetchCategoryAction()

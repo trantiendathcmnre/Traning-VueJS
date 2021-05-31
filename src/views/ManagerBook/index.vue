@@ -2,14 +2,14 @@
   <div>
     <v-data-table
       :headers="headers"
-      :items="allBooks.rows"
+      :items="filterBook"
       sort-by=""
       class="elevation-1"
     >
       <template v-slot:top>
         <v-toolbar flat>
           <div class="wrap-tool-bar">
-            <FilterCategory />
+            <FilterCategory @handleDropdownChange="(id) => (categoryId = id)" />
             <v-spacer></v-spacer>
             <ModalBook />
             <ConfirmDelete />
