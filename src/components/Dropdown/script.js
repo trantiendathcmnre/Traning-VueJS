@@ -1,6 +1,11 @@
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "FilterCategory",
+  props: {
+    filter: {
+      type: Boolean,
+    },
+  },
   data: () => ({
     selectedBook: {},
   }),

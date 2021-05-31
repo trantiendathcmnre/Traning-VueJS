@@ -3,7 +3,7 @@
     <v-select
       ref="select"
       v-model="selectedBook"
-      :items="category"
+      :items="filter ? category : allCategory"
       item-value="id"
       item-text="name"
       label="Category"

@@ -9,8 +9,12 @@
       <template v-slot:top>
         <v-toolbar flat>
           <div class="wrap-tool-bar">
-            <FilterCategory @handleDropdownChange="(id) => (categoryId = id)" />
+            <FilterCategory
+              :filter="true"
+              @handleDropdownChange="(id) => (categoryId = id)"
+            />
             <v-spacer></v-spacer>
+
             <ModalBook />
             <ConfirmDelete />
           </div>
