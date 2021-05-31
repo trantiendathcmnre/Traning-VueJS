@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 
 const routes = [
   // FOR TESTING =======================
-  { path: "/", redirect: "/sign-up" },
+  { path: "/", redirect: "/sign-in" },
   //==================================
   { path: "/sign-up", component: SignUp },
   { path: "/sign-in", component: SignIn },

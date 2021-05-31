@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-container class="signIn-page d-flex flex-column">
     <v-alert
       :value="isValue"
       class="mb-0 text-center align-self-end"
@@ -9,7 +9,7 @@
     >
       {{ message }}
     </v-alert>
-    <div class="container d-flex flex-column mx-auto my-16 pt-10">
+    <div class="btn-group d-flex flex-column mx-auto my-16 pt-10">
       <div class="font-weight-black text-center text-h4">Login</div>
       <v-form ref="form" v-model="valid" class="d-flex flex-column">
         <div class="d-flex flex-column my-2">
@@ -45,11 +45,11 @@
         </v-btn>
       </v-form>
     </div>
-  </v-app>
+  </v-container>
 </template>
 
 <script src="./index.js">
 </script>
 
-<style lang= "scss" src="./index.scss">
+<style scoped lang= "scss" src="./index.scss">
 </style>
