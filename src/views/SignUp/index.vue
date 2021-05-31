@@ -84,4 +84,5 @@
 
 <script src="./index"></script>
 
-<style lang="scss" src="./index.scss"></style>
+<style lang="scss" scoped src="./index.scss">
+</style> 
