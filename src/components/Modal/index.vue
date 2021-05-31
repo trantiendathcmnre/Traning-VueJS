@@ -36,7 +36,7 @@
               <v-text-field
                 v-model="getBookModal.title"
                 label="Title"
-                :rules="rules.minLengthTitle"
+                :rules="[(v) => v.length >= 5 || 'Min length title is 5']"
                 required
               ></v-text-field>
             </v-col>
@@ -44,7 +44,7 @@
               <v-text-field
                 v-model="getBookModal.description"
                 label="Description"
-                :rules="rules.required"
+                :rules="[(v) => !!v || 'This field is required']"
                 required
               ></v-text-field>
             </v-col>
@@ -52,7 +52,7 @@
               <v-text-field
                 v-model="getBookModal.author"
                 label="Author"
-                :rules="rules.required"
+                :rules="[(v) => !!v || 'This field is required']"
                 required
               ></v-text-field>
             </v-col>
@@ -60,7 +60,7 @@
               <v-text-field
                 v-model="getBookModal.total"
                 label="Total"
-                :rules="rules.required"
+                :rules="[(v) => !!v || 'This field is required']"
                 required
               ></v-text-field>
             </v-col>
@@ -68,7 +68,7 @@
               <v-text-field
                 v-model="getBookModal.isbn"
                 label="ISBN"
-                :rules="rules.required"
+                :rules="[(v) => !!v || 'This field is required']"
                 required
               ></v-text-field>
             </v-col>
@@ -76,7 +76,7 @@
               <v-text-field
                 v-model="getBookModal.productionYear"
                 label="Production Year"
-                :rules="rules.required"
+                :rules="[(v) => !!v || 'This field is required']"
                 required
               ></v-text-field>
             </v-col>
@@ -85,7 +85,10 @@
                 v-model="getBookModal.cover"
                 label="Cover"
                 accept="image/png, image/jpeg, image/jpg"
-                :rules="rules.acceptType"
+                :rules="[
+                  (v) => !!v || 'This field is required',
+                  (v) => v.size >= 3000 || 'Just accept png, jpeg, jpg',
+                ]"
                 required
               ></v-file-input>
             </v-col>

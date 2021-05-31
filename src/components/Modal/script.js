@@ -15,11 +15,6 @@ export default {
   data: () => ({
     dialog: false,
     book: {},
-    rules: {
-      required: (value) => !!value || "This field is required",
-      minLengthTitle: (value) => value.length >= 5 || "Min length title is 5",
-      acceptType: (value) => value.size >= 3000 || "Just accept png, jpeg, jpg",
-    },
     defaultbook: {
       id: 0,
       title: "",
@@ -47,13 +42,6 @@ export default {
   methods: {
     ...mapMutations("modal", ["toggleBookModal"]),
     ...mapActions("book", ["createBookAction", "updateBookAction"]),
-
-    // actionRules() {
-    //   this.rules.required
-    //   this.rules.minLengthTitle =
-    //   this.rules.acceptType = (v) =>
-    //     v.size >= 3000 || "Just accept png, jpeg, jpg";
-    // },
     close() {
       this.toggleBookModal({ isOpen: false, book: {} });
     },
