@@ -16,7 +16,6 @@ export default {
     methods: {
         /**
          * [actionRule - set validation rules]
-         * @return []     [description]
          */
         actionRule() {
             this.rules.required = (value) => !!value || "This field is required"
