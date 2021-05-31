@@ -115,7 +115,4 @@ export default {
       this.toggleBookModal({ isOpen: false, book: {} });
     },
   },
-  watch: {},
-
-  updated() {},
 };

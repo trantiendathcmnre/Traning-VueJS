@@ -13,7 +13,6 @@ export default {
   methods: {
     ...mapActions("category", ["fetchCategoryAction"]),
     handleClick(id) {
-      console.log("dropdown");
       this.$emit("handleDropdownChange", id);
     },
   },
