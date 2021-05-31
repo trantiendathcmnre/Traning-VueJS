@@ -20,9 +20,7 @@
             @click:append="isShowPassword = !isShowPassword"
           />
         </div>
-        <v-alert :value="isvalue" type="error" outlined width="250px">
-          {{ message }}
-        </v-alert>
+
         <v-btn
           class="submit blue lighten-2 rounded-xl mx-auto my-1 text-center"
           width="180px"
@@ -44,9 +42,6 @@
   </v-app>
 </template>
 
+<script src="./index.js"></script>
 
-<script src="./index.js">
-</script>
-
-<style src="./index.css">
-</style>
+<style src="./index.css"></style>

@@ -65,14 +65,6 @@
             </div>
           </div>
         </div>
-        <v-alert
-          :value="value"
-          type="error"
-          outlined
-          width="250px"
-        >
-          {{ message }}
-        </v-alert>
         <v-btn
           class="submit blue lighten-2 rounded-xl mx-auto my-1 text-center"
           width="180px"

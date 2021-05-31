@@ -8,10 +8,10 @@ Vue.use(VueRouter);
 
 const routes = [
   // FOR TESTING =======================
-  { path: '/', redirect: '/signIn' },
+  { path: '/', redirect: '/sign-in' },
   //==================================
-  { path: '/signup', component: SignUp },
-  { path: '/signIn', component: SignIn },
+  { path: '/sign-up', component: SignUp },
+  { path: '/sign-in', component: SignIn },
   { path: '/book-manager', component: ManagerBook }
 ];
 
