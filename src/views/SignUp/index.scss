@@ -1,0 +1,18 @@
+.btn-group {
+    width: 600px;
+    .v-form {
+      .titleInput{
+        font: {
+          size: 0.85rem;
+        }
+      }
+    }
+    .v-alert{
+      align-self: center;
+    }
+}
+@media (min-width: 960px){
+  .container {
+    max-width: 100%;
+}
+}
