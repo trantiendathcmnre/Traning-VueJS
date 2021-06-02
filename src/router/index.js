@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import SignUp from '../components/SignUp/index.vue';
-import SignIn from '../components/SignInPage/index.vue';
+import SignUp from '../views/SignUp/index.vue';
+import SignIn from '../views/SignInPage/index.vue';
 import ManagerBook from '../views/ManagerBook';
 
 Vue.use(VueRouter);
@@ -12,12 +12,12 @@ const routes = [
   //==================================
   { path: '/sign-up', component: SignUp },
   { path: '/sign-in', component: SignIn },
-  { path: '/book-manager', component: ManagerBook }
+  { path: '/book-manager', component: ManagerBook },
 ];
 
 const router = new VueRouter({
   mode: 'history',
-  routes
+  routes,
 });
 
 export default router;
