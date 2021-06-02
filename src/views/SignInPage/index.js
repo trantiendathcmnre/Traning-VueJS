@@ -31,7 +31,7 @@ export default {
       };
       this.signInAction(user)
         .then(() => this.$router.push('/book-manager'))
-        .catch(err => {
+        .catch(error => {
           console.log('Error 💣💣💣: ' + error);
         });
     },
