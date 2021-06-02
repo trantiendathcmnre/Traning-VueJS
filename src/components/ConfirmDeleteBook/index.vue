@@ -2,6 +2,7 @@
   <v-dialog
     v-show="isConfirmModalOpen"
     v-model="isConfirmModalOpen"
+    persistent
     max-width="500px"
   >
     <v-card v-if="isConfirmModalOpen">

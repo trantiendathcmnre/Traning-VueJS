@@ -27,7 +27,7 @@ const actions = {
       }
     } catch (error) {
       console.log('Sign in ERROR --- ' + error);
-      throw new Error(error.response.data.message);
+      throw new Error(error);
     }
   },
 
@@ -41,7 +41,11 @@ const actions = {
         commit('setAuthState', true);
       }
     } catch (error) {
-      throw new Error(error.response.data.message);
+      console.log(error.response);
+
+      throw new Error(
+        error.response.data?.message || error.response.data[0].error
+      );
     }
   }
 };

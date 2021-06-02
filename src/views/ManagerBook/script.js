@@ -27,9 +27,16 @@ export default {
     ],
     bookDialogOpen: false,
     bookId: -1,
+    categoryId: 0
   }),
 
-  computed: mapGetters("book", ["allBooks"]),
+  computed: {
+    ...mapGetters("book", ["allBooks"]),
+    filterBook() {
+      if (this.categoryId == 0) return this.allBooks.rows;
+      return this.allBooks.rows.filter((book) => book.categoryId == this.categoryId)
+    }
+  },
 
   mounted() {
     this.fetchBookAction();

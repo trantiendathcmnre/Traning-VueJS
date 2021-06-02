@@ -1,22 +1,22 @@
 <template>
-  <v-app>
-    <div id="app">
+  <div id="app">
+    <v-app>
       <router-view></router-view>
-    </div>
-  </v-app>
+    </v-app>
+  </div>
 </template>
 <script>
 export default {
-  name: "App",
+  name: 'App'
 };
 </script>
 
 <script>
-import ManagerBook from "./views/ManagerBook";
+import ManagerBook from './views/ManagerBook';
 export default {
   components: {
-    ManagerBook,
-  },
+    ManagerBook
+  }
 };
 </script>
 
@@ -24,6 +24,6 @@ export default {
 #app {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  margin-top: 20px;
 }
 </style>

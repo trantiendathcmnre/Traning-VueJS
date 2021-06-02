@@ -1,33 +1,27 @@
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "FilterCategory",
+  props: {
+    filter: {
+      type: Boolean,
+    },
+  },
   data: () => ({
-    selectedBook: []
+    selectedBook: {},
   }),
   computed: {
     ...mapGetters("category", ["allCategory"]),
-    selectAllBook() {
-      return this.selectedBook.length === this.allCategory.length
+    category() {
+      return [{ id: 0, name: "Select All" }, ...this.allCategory];
     },
-    selectSomeBook() {
-      return this.selectedBook.length > 0 && !this.selectAllBook
-    },
-  }
-  ,
+  },
   methods: {
     ...mapActions("category", ["fetchCategoryAction"]),
-    toggle() {
-      console.log(this.selectAllBook)
-      this.$nextTick(() => {
-        if (this.selectAllBook) {
-          this.selectedBook = []
-        } else {
-          this.selectedBook = this.allCategory.slice()
-        }
-      })
+    handleClick(id) {
+      this.$emit("handleDropdownChange", id);
     },
   },
   mounted() {
-    this.fetchCategoryAction()
-  }
+    this.fetchCategoryAction();
+  },
 };
