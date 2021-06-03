@@ -4,7 +4,7 @@
       <div class="font-weight-black text-center text-h4">
         Login
       </div>
-      <v-form ref="form" v-model="valid" class="d-flex flex-column">
+      <v-form ref="form" class="d-flex flex-column">
         <div class="d-flex flex-column my-2">
           <label class="title-input">Username</label>
           <v-text-field v-model="userName" outlined :rules="rules.username" />
@@ -24,6 +24,7 @@
           class="submit blue white--text lighten-2 rounded-xl mx-auto my-1 text-center"
           width="180px"
           depressed
+          :loading="isWatting"
           @click="submitBtn"
         >
           Login
