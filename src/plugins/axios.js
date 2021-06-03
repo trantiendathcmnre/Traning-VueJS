@@ -7,8 +7,8 @@ const BASE_API = process.env.VUE_APP_API_URl;
 const api = axios.create({
   baseURL: BASE_API,
   headers: {
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });
 
 api.interceptors.request.use(
@@ -23,18 +23,10 @@ api.interceptors.request.use(
 );
 
 api.interceptors.response.use(
-  response => {
-    // console.log(response);
-
-    return response.data;
-  },
+  response => response.data,
   error => {
-    console.log(error.response.status);
-    console.log(error.response);
-
-    let msg = error.response.data?.message || error.response.data[0].error;
-
-    if (error.response.status == 401) msg = 'Invalid username or password!';
+    // if internet was interrupted -> error.response is undefined
+    let msg = !error.response ? error.message : error.response.data?.message || error.response.data[0].error;
 
     Vue.$toast.error(msg, { timeout: 5000 });
     return Promise.reject();
