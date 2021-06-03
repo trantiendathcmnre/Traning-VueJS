@@ -3,24 +3,14 @@ export default {
   name: 'SignIn',
   data: () => ({
     isShowPassword: false,
-    isValue: false,
-    valid: true,
     userName: '',
     password: '',
     rules: {
-      required: true,
-      passwordLength: true,
+      username: [v => !!v || 'This field is required'],
+      password: [v => !!v || 'This field is required', v => (v && v.length >= 5) || 'Min length is 5 characters'],
     },
-    message: '',
   }),
   methods: {
-    /**
-     * [actionRule - set validation rules]
-     */
-    actionRule() {
-      this.rules.required = value => !!value || 'This field is required';
-      this.rules.passwordLength = value => (value || '').length >= 5 || 'Min length is 5 characters';
-    },
     /**
      * [callAPI - get body data, call API,push router path if success or show Toast error if fail]
      */
@@ -40,22 +30,13 @@ export default {
      * [submitBtn - call function actionRule, check form validate to call API]
      */
     submitBtn() {
-      this.actionRule();
-      setTimeout(() => {
-        const isValid = this.$refs.form.validate();
-        if (isValid) {
-          this.callAPI();
-        }
-      });
+      if (this.$refs.form.validate()) this.callAPI();
     },
     /**
      * [signUpBtn - push router path]
      */
     signUpBtn() {
       this.$router.push('/sign-up');
-    },
-    signInBtn() {
-      this.$router.push('/signup');
     },
   },
 };
